@@ -10,4 +10,11 @@ public interface DemoService {
 
     String sayHello(String name);
 
+    /**
+     * 容错
+     * @param name
+     * @return
+     */
+    String sayHelloException(String name);
+
 }
