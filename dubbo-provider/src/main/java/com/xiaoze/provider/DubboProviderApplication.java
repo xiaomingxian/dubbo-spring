@@ -27,7 +27,7 @@ public class DubboProviderApplication {
 //    ProviderConsumerRegTable
 //    FactoryBean
 //    RegistryProtocol
-    DubboProtocol
+//    DubboProtocol
 
     public static void main(String[] args) {
         SpringApplication.run(DubboProviderApplication.class, args);
