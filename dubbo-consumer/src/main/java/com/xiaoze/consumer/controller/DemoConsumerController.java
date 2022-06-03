@@ -1,6 +1,7 @@
 package com.xiaoze.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.dubbo.config.spring.schema.DubboBeanDefinitionParser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.xiaoze.api.service.DemoService;
 import org.springframework.web.bind.annotation.PathVariable;
