@@ -1,3 +1,5 @@
+[参考视频](https://www.bilibili.com/video/BV1zt411M7pF?p=28&spm_id_from=pageDriver)
+
 #### 一次完整的RPC调用流程(同步调用)
 
 1. 消费者调用以本地调用方式调用服务
@@ -90,6 +92,7 @@ DubboBeanDefinitionParser {
 ```
 
 #### 服务引用对象获取过程
+[图解](./pic/服务引用流程.png)
 
 1. dubboExpoter 建立netty客户端与netty建立连接
 2. 从spring的FactoryBean中getObject() ... 获取代理对象
@@ -115,4 +118,20 @@ DubboBeanDefinitionParser {
 ```
    public static ConcurrentHashMap<String, Set<ConsumerInvokerWrapper>> consumerInvokers = new ConcurrentHashMap();
 ```
+
+
+#### 调用流程
+service引用是个代理对象
+invoker.invoke(new RpcInvocation(method,args)).recreate()
+....
+获取到 invoker list  //可能存在多版本
+负载均衡 选中一个 invoker
+...
+DubboInvoker:
+   currentClient(服务引用时暴露的对象)
+   //获取结果
+   (Request)currentClient.request(inv,timeout).get()
+   channel.send(req)
+
+
 
